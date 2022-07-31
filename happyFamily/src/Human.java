@@ -8,55 +8,15 @@ public class Human {
     private Human mother;
     private String[][] schedule;
 
-    public String toString() {
-        return "Human{" +
-                "name='" + getName() + '\'' +
-                ", surname='" + getSurname() + '\'' +
-                ", year=" + getYear() +
-                ", iq=" + getIq() +
-                ", pet=" + getPet() +
-                ", father=" + getFather().getName() + " " + getFather().getSurname() +
-                ", mother=" + getMother().getName() + " " + getMother().getSurname() +
-                '}';
+    public Family getFamily() {
+        return family;
     }
 
-    public Human(String name, String surname, int year) {
-        this.setName(name);
-        this.setSurname(surname);
-        this.setYear(year);
+    public void setFamily(Family family) {
+        this.family = family;
     }
 
-    public Human() {
-
-    }
-
-    public Human(String name, String surname, int year, int iq, Pet pet, Human father, Human mother, String[][] schedule) {
-        this.setName(name);
-        this.setSurname(surname);
-        this.setYear(year);
-        this.setIq(iq);
-        this.setPet(pet);
-        this.setFather(father);
-        this.setMother(mother);
-        this.setSchedule(schedule);
-    }
-
-
-
-    public void greetPet() {
-        System.out.println("Hello, " + getPet().nickName);
-    }
-
-    public void describePet() {
-        String sly = "";
-        if (getPet().trickLevel > 50) {
-            sly = "very sly";
-        } else {
-            sly = "almost not sly";
-        }
-
-        System.out.println("I have " + getPet().species + ", he is " + getPet().age + " years old, he is " + sly);
-    }
+    private Family family;
 
     public String getName() {
         return name;
@@ -120,5 +80,57 @@ public class Human {
 
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
+    }
+
+
+
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", pet=" + pet +
+                ", father=" + father.name + " " + father.surname +
+                ", mother=" + mother.name + " " + mother.surname +
+                '}';
+    }
+
+    public Human(String name, String surname, int year) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+    }
+
+    public Human() {
+
+    }
+
+    public Human(String name, String surname, int year, int iq, Pet pet, Human father, Human mother, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.pet = pet;
+        this.father = father;
+        this.mother = mother;
+        this.schedule = schedule;
+    }
+
+
+
+    public void greetPet() {
+        System.out.println("Hello, " + pet.getNickName());
+    }
+
+    public void describePet() {
+        String sly = "";
+        if (pet.getTrickLevel() > 50) {
+            sly = "very sly";
+        } else {
+            sly = "almost not sly";
+        }
+
+        System.out.println("I have " + pet.getSpecies() + ", he is " + pet.getAge() + " years old, he is " + sly);
     }
 }
