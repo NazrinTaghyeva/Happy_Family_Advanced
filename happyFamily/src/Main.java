@@ -5,16 +5,13 @@ public class Main {
 
         Human mother = new Human("Melina", "Doe", 1983);
         Human father = new Human("John", "Doe", 1975);
+        Family mFamily = new Family(mother,father);
+        Human child1 = new Human("Nazryn","Doe",2003,90,pet,father,mother, new String[][]{{"thursday", "watch the film"}});
+        Human child2 = new Human("Kate","Doe",2020,80,pet,father,mother, new String[][]{{"saturday", "meet the friends"}});
 
-        Human child = new Human("Nazryn","Doe", 2003,180, pet, father,mother, new String[][]{{"thursday", "watch the film"}});
-
-        child.greetPet();
-        child.describePet();
-        pet.respond();
-        pet.eat();
-
-        System.out.println(child);
+        mFamily.addChild(child1);
+        mFamily.addChild(child2);
+        System.out.println(mFamily);
     }
 
 }
-
