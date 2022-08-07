@@ -1,6 +1,9 @@
+import java.util.Arrays;
+
 public class Human {
+
     private String name;
-    private String surname;
+    private String surName;
     private int year;
     private int iq;
     private Pet pet;
@@ -17,7 +20,6 @@ public class Human {
     }
 
     private Family family;
-
     public String getName() {
         return name;
     }
@@ -26,12 +28,12 @@ public class Human {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public int getYear() {
@@ -82,55 +84,74 @@ public class Human {
         this.schedule = schedule;
     }
 
-
-
-    public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", year=" + year +
-                ", iq=" + iq +
-                ", pet=" + pet +
-                ", father=" + father.name + " " + father.surname +
-                ", mother=" + mother.name + " " + mother.surname +
-                '}';
-    }
-
-    public Human(String name, String surname, int year) {
+    public Human(String name, String surName, int year, int iq, String[][] schedule, Family family) {
         this.name = name;
-        this.surname = surname;
+        this.surName = surName;
         this.year = year;
+        this.iq = iq;
+        this.schedule = schedule;
+        this.family = family;
     }
 
     public Human() {
-
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human father, Human mother, String[][] schedule) {
+    public Human(String name, String surName, int year) {
         this.name = name;
-        this.surname = surname;
+        this.surName = surName;
+        this.year = year;
+    }
+
+    public Human(String name, String surName, int year, int iq, String[][] schedule) {
+        this.name = name;
+        this.surName = surName;
+        this.year = year;
+        this.iq = iq;
+        this.schedule = schedule;
+    }
+
+    public Human(String name, String surName, int year, Human father, Human mother) {
+        this.name = name;
+        this.surName = surName;
+        this.year = year;
+        this.father = father;
+        this.mother = mother;
+    }
+
+    public Human(String name, String surName, int year, int iq, Pet pet, Human father, Human mother, String[][] schedule) {
+        this.name = name;
+        this.surName = surName;
         this.year = year;
         this.iq = iq;
         this.pet = pet;
         this.father = father;
         this.mother = mother;
         this.schedule = schedule;
+
     }
 
-
-
     public void greetPet() {
-        System.out.println("Hello, " + pet.getNickName());
+        System.out.println("Hello " + pet.getNickName());
     }
 
     public void describePet() {
-        String sly = "";
+        String sly = " ";
         if (pet.getTrickLevel() > 50) {
             sly = "very sly";
         } else {
             sly = "almost not sly";
         }
-
-        System.out.println("I have " + pet.getSpecies() + ", he is " + pet.getAge() + " years old, he is " + sly);
     }
+
+
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surName + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", scheduler=" + Arrays.deepToString(schedule)+
+                '}';
+    }
+
 }
