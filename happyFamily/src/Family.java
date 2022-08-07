@@ -73,25 +73,7 @@ public class Family {
         }
 
     }
-    public void deleteChild(int in) {
-        if (in > getChildren().length - 1) {
-            getChildren();
-        } else {
-            Human[] children = new Human[getChildren().length - 1];
-            if (children.length == 0) {
-                children = new Human[0];
-            } else {
-                for (int i = 0, j = 0; i < getChildren().length; i++) {
-                    if (i == in) {
-                        continue;
-                    }
-                    children[j++] = getChildren()[i];
-                }
-            }
-            setChildren(children);
-        }
-
-    }
+   
 
     public int countFamily() {
         return 2 + this.children.length;
